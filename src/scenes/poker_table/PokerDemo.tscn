@@ -1,0 +1,240 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvr8xh7m3c6n2"]
+
+[ext_resource type="Script" path="res://src/scenes/poker_table/PokerDemo.gd" id="1_demo"]
+
+[node name="PokerDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_demo")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🎰 牌局Demo - 与赌徒NPC博弈"
+horizontal_alignment = 1
+
+[node name="InfoPanel" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="PlayerInfo" type="VBoxContainer" parent="VBoxContainer/InfoPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerTitle" type="Label" parent="VBoxContainer/InfoPanel/PlayerInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "👤 玩家"
+horizontal_alignment = 1
+
+[node name="PlayerFunds" type="Label" parent="VBoxContainer/InfoPanel/PlayerInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "资金: $10000"
+horizontal_alignment = 1
+
+[node name="PlayerHand" type="Label" parent="VBoxContainer/InfoPanel/PlayerInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "手牌: --"
+horizontal_alignment = 1
+
+[node name="PlayerHandType" type="Label" parent="VBoxContainer/InfoPanel/PlayerInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = ""
+horizontal_alignment = 1
+
+[node name="PotInfo" type="VBoxContainer" parent="VBoxContainer/InfoPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PotTitle" type="Label" parent="VBoxContainer/InfoPanel/PotInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "💰 底池"
+horizontal_alignment = 1
+
+[node name="PotAmount" type="Label" parent="VBoxContainer/InfoPanel/PotInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.85, 0, 1)
+text = "$0"
+horizontal_alignment = 1
+
+[node name="RoundInfo" type="Label" parent="VBoxContainer/InfoPanel/PotInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "第 1 轮"
+horizontal_alignment = 1
+
+[node name="ToCall" type="Label" parent="VBoxContainer/InfoPanel/PotInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "需跟注: $0"
+horizontal_alignment = 1
+
+[node name="NPCInfo" type="VBoxContainer" parent="VBoxContainer/InfoPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NPCTitle" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎭 神秘赌客"
+horizontal_alignment = 1
+
+[node name="NPCFunds" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "资金: $10000"
+horizontal_alignment = 1
+
+[node name="NPCHand" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "手牌: 🂠 --"
+horizontal_alignment = 1
+
+[node name="NPCState" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.8, 0.8, 0.4, 1)
+text = "心理: 平静 / 放松"
+horizontal_alignment = 1
+
+[node name="NPCTrap" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 0.5, 0.5, 1)
+text = "陷阱: 过度自信"
+horizontal_alignment = 1
+
+[node name="GameLog" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogTitle" type="Label" parent="VBoxContainer/GameLog"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "📜 游戏日志"
+
+[node name="LogScroll" type="ScrollContainer" parent="VBoxContainer/GameLog"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogText" type="RichTextLabel" parent="VBoxContainer/GameLog/LogScroll"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "等待开始..."
+scroll_following = true
+
+[node name="ActionPanel" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="FoldBtn" type="Button" parent="VBoxContainer/ActionPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "弃牌"
+
+[node name="CheckCallBtn" type="Button" parent="VBoxContainer/ActionPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "过牌/跟注"
+
+[node name="RaiseBtn" type="Button" parent="VBoxContainer/ActionPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "加注"
+
+[node name="RaiseAmount" type="SpinBox" parent="VBoxContainer/ActionPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+min_value = 100.0
+max_value = 10000.0
+step = 100.0
+value = 200.0
+
+[node name="AllInBtn" type="Button" parent="VBoxContainer/ActionPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "全押"
+
+[node name="PsychPanel" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PressureBtn" type="Button" parent="VBoxContainer/PsychPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "施加压力 +20"
+
+[node name="ExciteBtn" type="Button" parent="VBoxContainer/PsychPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "刺激兴奋 +20"
+
+[node name="ControlPanel" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StartBtn" type="Button" parent="VBoxContainer/ControlPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "开始牌局"
+
+[node name="RestartBtn" type="Button" parent="VBoxContainer/ControlPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "重新开始"
