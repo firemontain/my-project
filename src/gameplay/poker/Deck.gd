@@ -22,7 +22,7 @@ func _build_standard_deck() -> void:
 	_dealt_cards.clear()
 	for suit_val in CardData.Suit.values():
 		for rank_val in range(CardData.Rank.TWO, CardData.Rank.ACE + 1):
-			var card := CardData.new(suit_val as CardData.Suit, rank_val as CardData.Rank)
+			var card: CardData = CardData.new(suit_val as CardData.Suit, rank_val as CardData.Rank)
 			_cards.append(card)
 
 
@@ -35,7 +35,7 @@ func shuffle() -> void:
 func deal_card() -> CardData:
 	if _cards.is_empty():
 		return null
-	var card := _cards.pop_front()
+	var card: CardData = _cards.pop_front()
 	_dealt_cards.append(card)
 	return card
 
@@ -44,7 +44,7 @@ func deal_card() -> CardData:
 func deal_cards(count: int) -> Array[CardData]:
 	var result: Array[CardData] = []
 	for i in range(count):
-		var card := deal_card()
+		var card: CardData = deal_card()
 		if card:
 			result.append(card)
 	return result

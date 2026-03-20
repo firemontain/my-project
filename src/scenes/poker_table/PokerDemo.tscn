@@ -67,7 +67,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = ""
 horizontal_alignment = 1
 
 [node name="PotInfo" type="VBoxContainer" parent="VBoxContainer/InfoPanel"]
@@ -83,8 +82,8 @@ horizontal_alignment = 1
 [node name="PotAmount" type="Label" parent="VBoxContainer/InfoPanel/PotInfo"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 theme_override_colors/font_color = Color(1, 0.85, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "$0"
 horizontal_alignment = 1
 
@@ -129,16 +128,16 @@ horizontal_alignment = 1
 [node name="NPCState" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
 theme_override_colors/font_color = Color(0.8, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 16
 text = "心理: 平静 / 放松"
 horizontal_alignment = 1
 
 [node name="NPCTrap" type="Label" parent="VBoxContainer/InfoPanel/NPCInfo"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
 theme_override_colors/font_color = Color(1, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 14
 text = "陷阱: 过度自信"
 horizontal_alignment = 1
 
